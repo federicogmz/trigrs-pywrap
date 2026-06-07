@@ -2,6 +2,10 @@
 
 A Python wrapper for the TRIGRS (Transient Rainfall Infiltration and Grid-Based Regional Slope-Stability) model, designed to simplify landslide hazard analysis workflows using Python.
 
+[![CI](https://github.com/federicogmz/trigrs-pywrap/actions/workflows/ci.yml/badge.svg)](https://github.com/federicogmz/trigrs-pywrap/actions/workflows/ci.yml)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+
 ## Overview
 
 TRIGRS-PyWrap provides a Pythonic interface to the TRIGRS model, which is used for analyzing rainfall-induced landslide hazards. This wrapper handles the complexity of input file generation, model execution, and output processing, allowing researchers and engineers to focus on analysis rather than file formatting.
@@ -162,7 +166,9 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ## License
 
-This project is open source. Please check with the repository maintainer for specific license terms.
+GNU General Public License v3.0 (GPL-3.0)
+
+See [LICENSE.md](LICENSE.md) for full license text.
 
 ## Acknowledgments
 
