@@ -64,8 +64,8 @@ Repository = "https://github.com/federicogmz/trigrs-pywrap.git"
 Documentation = "https://github.com/federicogmz/trigrs-pywrap/blob/main/README.md"
 "Bug Reports" = "https://github.com/federicogmz/trigrs-pywrap/issues"
 
-[tool.setuptools.packages.find]
-include = ["geohazards*"]
+[tool.setuptools]
+py-modules = ["geohazards"]
 
 [tool.ruff]
 line-length = 88
