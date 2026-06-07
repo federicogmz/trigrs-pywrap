@@ -1,19 +1,19 @@
 import os
 import re
+import subprocess
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import numpy as np
 import rasterio
 import rioxarray
-import subprocess
-import numpy as np
 import xarray as xr
-import geopandas as gpd
-from scipy import ndimage
-from pysheds.grid import Grid
-import matplotlib.pyplot as plt
 from geocube.api.core import make_geocube
+from pysheds.grid import Grid
+from scipy import ndimage
 
 
 class geohazards:
-
     def __init__(self, dem_path: str, geo: gpd.GeoDataFrame):
         """
         Inicializa clase padre y crea variables base.
@@ -268,7 +268,6 @@ class geohazards:
 
 
 class TRIGRS(geohazards):
-
     def __init__(
         self,
         dem_path,
@@ -304,7 +303,6 @@ class TRIGRS(geohazards):
                 return data
 
             if amenaza:
-
                 all_fs = []
 
                 params = [
@@ -450,7 +448,6 @@ class TRIGRS(geohazards):
             self.rows, self.cols = dem.sizes["y"], dem.sizes["x"]
 
         else:
-
             print(f"Dem NaN: {dem.isnull().sum().values}")
             print(f"Slope NaN: {slope.isnull().sum().values}")
             print(f"Zs NaN: {zs.isnull().sum().values}")
@@ -481,7 +478,7 @@ class TRIGRS(geohazards):
             file.write(content)
 
         print("GridMatch input created successfully.")
-        print(f"----- Executing gridmatch.exe. -----")
+        print("----- Executing gridmatch.exe. -----")
 
         os.chdir(self.out_path)
         subprocess.run(
@@ -490,7 +487,7 @@ class TRIGRS(geohazards):
             stderr=subprocess.DEVNULL,
         )
 
-        print(f"----- gridmatch.exe finished. -----")
+        print("----- gridmatch.exe finished. -----")
 
         # Results
         mismatches = {}
@@ -568,7 +565,7 @@ class TRIGRS(geohazards):
             stderr=subprocess.DEVNULL,
         )
 
-        print(f"----- TopoIndex.exe finished. -----")
+        print("----- TopoIndex.exe finished. -----")
 
         # Results
 
@@ -682,7 +679,7 @@ class TRIGRS(geohazards):
         content += f"{zmax}, {depth}, {rizero}, {min_slope_angle}\n"
 
         for i in range(zones):
-            content += f"zone,{i+1}\n"
+            content += f"zone,{i + 1}\n"
             content += "cohesion,phi,uws,diffus,K-sat,Theta-sat,Theta-res,Alpha\n"
             content += f"{cohesion[i]},{phi[i]},{gamma[i]},{diffus[i]},{k_sat[i]},{theta_sat[i]},{theta_res[i]},{alpha[i]}\n"
 
@@ -761,7 +758,7 @@ class TRIGRS(geohazards):
 
     def TRIGRS_main(self):
 
-        print(f"----- Executing TRIGRS.exe. -----")
+        print("----- Executing TRIGRS.exe. -----")
 
         subprocess.run(
             [f"{self.out_path}/TRIGRS.exe"],
@@ -769,4 +766,4 @@ class TRIGRS(geohazards):
             stderr=subprocess.DEVNULL,
         )
 
-        print(f"----- TRIGRS.exe finished. -----")
+        print("----- TRIGRS.exe finished. -----")
