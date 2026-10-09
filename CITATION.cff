@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite it using the metadata from this file.
+title: "TRIGRS-PyWrap: Python wrapper for the TRIGRS landslide hazard model"
+type: software
+authors:
+  - family-names: "Gómez"
+    given-names: "Federico"
+    email: "fjgomezc@eafit.edu.co"
+    orcid: "https://orcid.org/0000-0002-8525-4354"
+    affiliation: "SIATA, Sistema de Alerta Temprana de Antioquia; Universidad EAFIT"
+version: "1.0.0"
+date-released: "2025-06-01"
+license: GPL-3.0
+repository-code: "https://github.com/federicogmz/trigrs-pywrap"
+url: "https://github.com/federicogmz/trigrs-pywrap"
+abstract: >-
+  Python wrapper for TRIGRS (Transient Rainfall Infiltration and Grid-Based
+  Regional Slope-Stability). It automates DEM preprocessing, geological data
+  rasterization, slope and flow-direction analysis, soil thickness estimation
+  from the Catani et al. model, and batch parameter sensitivity runs, turning a
+  closed, platform-specific reference implementation into scriptable geospatial
+  workflows.
+keywords:
+  - "landslides"
+  - "TRIGRS"
+  - "slope stability"
+  - "hazard assessment"
+  - "rainfall infiltration"
+  - "geohazards"
+  - "geospatial"
+  - "DEM"
+references:
+  - type: generic
+    title: "TRIGRS: Transient Rainfall Infiltration and Grid-Based Regional Slope-Stability Analysis"
+    authors:
+      - family-names: "Iverson"
+        given-names: "R. M."
+    year: 2000
+    number: "2000-4172"
+    publisher:
+      name: "U.S. Geological Survey"
+    doi: "10.3133/ofr20004172"
