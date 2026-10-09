@@ -17,15 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      # Pineado a propósito: `ruff format` no es estable entre versiones. Desde
-      # 0.16 empieza a formatear los bloques de Python dentro de los .md, así
-      # que en 2026-10 un `pip install ruff` sin tocar nada pasó a marcar
-      # README.md y CONTRIBUTING.md — dos ficheros que nunca se formatearon y
-      # que este chequeo no miraba. El chequeo tiene que oprimirse contra la
-      # versión con la que el repositorio está formateado, no contra la última
-      # que exista el día del push. Para subirla: reformatear y revisar el diff
-      # de los .md de paso.
-      - run: pip install ruff==0.15.16
+      - run: pip install ruff
       - run: ruff check .
       - run: ruff format --check .
 
